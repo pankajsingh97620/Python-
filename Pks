@@ -1,18 +1,1 @@
-Here’s a draft email:
 
-Subject: Follow-up on Switch Breaks and Auto-Coding Issue
-
-Hi Naresh,
-
-As discussed, the switch breaks related to the CLADI departure are being coded to GTSL, and we can take ownership of this break moving forward. Please note the following actions:
-	1.	Kindly work with IT to get the auto-coding issue fixed at the earliest.
-	2.	As a temporary arrangement, we will not send recoding emails and will directly code the switch breaks to the RECS department. You can then assign them to the correct department accordingly.
-
-Additionally, I would suggest that while delivering the recs to us, please ensure that the breaks are coded to the correct department. This will help us avoid any manual intervention.
-
-Let me know if you have any questions or need further clarification.
-
-Best regards,
-[Your Name]
-
-Feel free to adjust any details as needed!
