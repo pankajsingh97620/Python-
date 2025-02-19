@@ -1,1 +1,19 @@
+Here’s a professional email you can send to the client:
 
+Subject: Urgent: Insufficient Funds Causing Settlement Failures
+
+Dear [Client’s Name],
+
+We have observed repeated settlement failures due to insufficient funds in your account. As a result, we are unable to process the required debits successfully.
+
+To avoid further disruptions, we kindly request you to ensure that sufficient funds are maintained in your account before the settlement date. Please take the necessary action at the earliest to prevent any operational delays or penalties.
+
+Should you require any clarification, feel free to reach out.
+
+Best regards,
+[Your Name]
+[Your Position]
+[Your Company Name]
+[Your Contact Information]
+
+Let me know if you’d like any modifications!
