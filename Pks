@@ -1,0 +1,7 @@
+Dear Sumit and Dinesh,
+
+I just wanted to say a big thank you to both of you for helping fix the AC reference issue. The references were getting wrongly assigned to STSY and GTSL, but you both quickly looked into the problem and created a new rule to ensure they now go to the right department (SGPIRDINT).
+
+Your efforts have made a big difference, and I really appreciate your help!
+
+Thanks again!
