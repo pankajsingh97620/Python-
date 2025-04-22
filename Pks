@@ -1,0 +1,7 @@
+=LET(
+    constant, 11400,
+    lastVal, LOOKUP(2,1/(H:H<>""),H:H),
+    diff, constant - lastVal,
+    perc, diff / lastVal,
+    TEXT(diff, "#,##0") & " (" & TEXT(perc, "0.00%") & ")"
+)
