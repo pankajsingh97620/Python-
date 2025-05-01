@@ -1,0 +1,8 @@
+=LET(
+  data, FILTER(V:V, V:V<>""),         // Get all non-empty values
+  lastVal, INDEX(data, ROWS(data)),   // Last value
+  prevVal, INDEX(data, ROWS(data)-1), // Second-last value
+  diff, lastVal - prevVal,
+  perc, IF(prevVal=0, 0, diff / prevVal),
+  TEXT(diff, "#,##0") & " (" & TEXT(perc, "0.00%") & ")"
+)
