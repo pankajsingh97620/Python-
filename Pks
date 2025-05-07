@@ -1,15 +1,7 @@
-=LET(
-  data, FILTER(V:V, ISNUMBER(V:V)),
-  count, ROWS(data),
-  result, IF(count < 2,
-    "Not enough data",
-    LET(
-      lastVal, INDEX(data, count),
-      prevVal, INDEX(data, count - 1),
-      diff, lastVal - prevVal,
-      perc, IF(prevVal=0, 0, diff / prevVal),
-      TEXT(diff, "#,##0") & " (" & TEXT(perc, "0.00%") & ")"
-    )
-  ),
-  result
-)
+Hi Nishant,
+
+I wanted to take a moment to sincerely thank you for your support in helping me understand the Bolt MI tool. Your deep knowledge of the tool is truly commendable, and I was genuinely impressed by how you had an answer for every question I raised.
+
+Thanks to your guidance, I was able to confidently identify the noise emails and make meaningful progress. Your willingness to share your expertise made a big difference, and I truly appreciate your time and effort.
+
+Looking forward to learning more from you in the future!
