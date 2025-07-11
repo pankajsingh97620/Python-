@@ -1,0 +1,45 @@
+Sub FilterAndShowNames()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim category As String
+    Dim outputRow As Long
+    Dim cell As Range
+    
+    ' Set worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change if using a different sheet name
+    ws.Cells.Clear ' Clear everything for fresh setup
+    
+    ' Set headers
+    ws.Range("A1").Value = "Category"
+    ws.Range("B1").Value = "Name"
+    
+    ' Add sample data
+    ws.Range("A2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("XYZ", "XYZ", "ABC", "ABC", "DEF", "DEF"))
+    ws.Range("B2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("Pankaj", "Takes", "Mohit", "Vasu", "Neel", "Mukesh"))
+    
+    ' Apply filter to header row
+    ws.Range("A1:B7").AutoFilter
+    
+    ' Ask user what category to filter
+    category = InputBox("Enter category to filter: (e.g., XYZ, ABC, DEF)", "Filter Category")
+    If category = "" Then Exit Sub
+    
+    ' Apply filter based on input
+    ws.Range("A1:B7").AutoFilter Field:=1, Criteria1:=category
+    
+    ' Clear previous output
+    ws.Range("C1:C100").ClearContents
+    ws.Range("C1").Value = "Filtered Names"
+    outputRow = 2
+    
+    ' Loop through visible rows and copy names
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    For Each cell In ws.Range("A2:A" & lastRow)
+        If Not cell.EntireRow.Hidden Then
+            ws.Cells(outputRow, "C").Value = cell.Offset(0, 1).Value
+            outputRow = outputRow + 1
+        End If
+    Next cell
+    
+    MsgBox "Filtered names for '" & category & "' are shown in column C.", vbInformation
+End Sub
