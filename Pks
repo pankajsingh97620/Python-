@@ -1,0 +1,19 @@
+Sub ShowFilteredNames()
+    Dim ws As Worksheet
+    Dim lastRow As Long, outputRow As Long
+    Dim cell As Range
+
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change to your sheet name
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    outputRow = 2 ' Start from row 2 in column C
+
+    ' Clear previous output
+    ws.Range("C2:C1000").ClearContents
+
+    For Each cell In ws.Range("A2:A" & lastRow)
+        If Not cell.EntireRow.Hidden Then
+            ws.Cells(outputRow, "C").Value = cell.Offset(0, 1).Value ' Copy from column B
+            outputRow = outputRow + 1
+        End If
+    Next cell
+End Sub
