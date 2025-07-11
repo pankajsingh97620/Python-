@@ -1,55 +1,14 @@
-Sub FilterFromDropdownAndShow()
-    Dim wsData As Worksheet
-    Dim wsDisplay As Worksheet
-    Dim category As Variant
-    Dim dataArray As Variant
-    Dim i As Long, outputRow As Long
+Private Sub UserForm_Initialize()
+    cmbCategory.Clear
+    cmbCategory.AddItem "XYZ"
+    cmbCategory.AddItem "ABC"
+    cmbCategory.AddItem "DEF"
+End Sub
 
-    ' Setup or reference hidden data sheet
-    On Error Resume Next
-    Set wsData = ThisWorkbook.Sheets("HiddenData")
-    If wsData Is Nothing Then
-        Set wsData = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
-        wsData.Name = "HiddenData"
-    End If
-    On Error GoTo 0
-
-    ' Hide the data sheet
-    wsData.Visible = xlSheetVeryHidden
-
-    ' Store the full dataset in the hidden sheet only once
-    If wsData.Cells(1, 1).Value = "" Then
-        wsData.Range("A1").Value = "Category"
-        wsData.Range("B1").Value = "Name"
-        wsData.Range("A2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("XYZ", "XYZ", "ABC", "ABC", "DEF", "DEF"))
-        wsData.Range("B2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("Pankaj", "Takes", "Mohit", "Vasu", "Neel", "Mukesh"))
-    End If
-
-    ' Setup display sheet
-    Set wsDisplay = ThisWorkbook.Sheets("Sheet1")
-    wsDisplay.Cells.ClearContents
-    wsDisplay.Range("A1").Value = "Filtered Names"
-    outputRow = 2
-
-    ' Show dropdown-style input box
-    category = Application.InputBox( _
-        Prompt:="Select a category to show names:" & vbNewLine & "Options: XYZ, ABC, DEF", _
-        Title:="Choose Filter", Type:=2)
-
-    If category = False Or category = "" Then Exit Sub
-
-    ' Loop through hidden data and match
-    dataArray = wsData.Range("A2:B" & wsData.Cells(wsData.Rows.Count, "A").End(xlUp).Row).Value
-    For i = 1 To UBound(dataArray)
-        If Trim(UCase(dataArray(i, 1))) = Trim(UCase(category)) Then
-            wsDisplay.Cells(outputRow, "A").Value = dataArray(i, 2)
-            outputRow = outputRow + 1
-        End If
-    Next i
-
-    If outputRow = 2 Then
-        MsgBox "No names found for '" & category & "'.", vbExclamation
+Private Sub btnOK_Click()
+    If cmbCategory.ListIndex = -1 Then
+        MsgBox "Please select a category from the dropdown.", vbExclamation
     Else
-        MsgBox "Names for '" & category & "' shown in column A.", vbInformation
+        Me.Hide
     End If
 End Sub
