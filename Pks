@@ -1,45 +1,55 @@
-Sub FilterAndShowNames()
-    Dim ws As Worksheet
-    Dim lastRow As Long
-    Dim category As String
-    Dim outputRow As Long
-    Dim cell As Range
-    
-    ' Set worksheet
-    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change if using a different sheet name
-    ws.Cells.Clear ' Clear everything for fresh setup
-    
-    ' Set headers
-    ws.Range("A1").Value = "Category"
-    ws.Range("B1").Value = "Name"
-    
-    ' Add sample data
-    ws.Range("A2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("XYZ", "XYZ", "ABC", "ABC", "DEF", "DEF"))
-    ws.Range("B2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("Pankaj", "Takes", "Mohit", "Vasu", "Neel", "Mukesh"))
-    
-    ' Apply filter to header row
-    ws.Range("A1:B7").AutoFilter
-    
-    ' Ask user what category to filter
-    category = InputBox("Enter category to filter: (e.g., XYZ, ABC, DEF)", "Filter Category")
-    If category = "" Then Exit Sub
-    
-    ' Apply filter based on input
-    ws.Range("A1:B7").AutoFilter Field:=1, Criteria1:=category
-    
-    ' Clear previous output
-    ws.Range("C1:C100").ClearContents
-    ws.Range("C1").Value = "Filtered Names"
+Sub FilterFromDropdownAndShow()
+    Dim wsData As Worksheet
+    Dim wsDisplay As Worksheet
+    Dim category As Variant
+    Dim dataArray As Variant
+    Dim i As Long, outputRow As Long
+
+    ' Setup or reference hidden data sheet
+    On Error Resume Next
+    Set wsData = ThisWorkbook.Sheets("HiddenData")
+    If wsData Is Nothing Then
+        Set wsData = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
+        wsData.Name = "HiddenData"
+    End If
+    On Error GoTo 0
+
+    ' Hide the data sheet
+    wsData.Visible = xlSheetVeryHidden
+
+    ' Store the full dataset in the hidden sheet only once
+    If wsData.Cells(1, 1).Value = "" Then
+        wsData.Range("A1").Value = "Category"
+        wsData.Range("B1").Value = "Name"
+        wsData.Range("A2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("XYZ", "XYZ", "ABC", "ABC", "DEF", "DEF"))
+        wsData.Range("B2").Resize(6, 1).Value = Application.WorksheetFunction.Transpose(Array("Pankaj", "Takes", "Mohit", "Vasu", "Neel", "Mukesh"))
+    End If
+
+    ' Setup display sheet
+    Set wsDisplay = ThisWorkbook.Sheets("Sheet1")
+    wsDisplay.Cells.ClearContents
+    wsDisplay.Range("A1").Value = "Filtered Names"
     outputRow = 2
-    
-    ' Loop through visible rows and copy names
-    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
-    For Each cell In ws.Range("A2:A" & lastRow)
-        If Not cell.EntireRow.Hidden Then
-            ws.Cells(outputRow, "C").Value = cell.Offset(0, 1).Value
+
+    ' Show dropdown-style input box
+    category = Application.InputBox( _
+        Prompt:="Select a category to show names:" & vbNewLine & "Options: XYZ, ABC, DEF", _
+        Title:="Choose Filter", Type:=2)
+
+    If category = False Or category = "" Then Exit Sub
+
+    ' Loop through hidden data and match
+    dataArray = wsData.Range("A2:B" & wsData.Cells(wsData.Rows.Count, "A").End(xlUp).Row).Value
+    For i = 1 To UBound(dataArray)
+        If Trim(UCase(dataArray(i, 1))) = Trim(UCase(category)) Then
+            wsDisplay.Cells(outputRow, "A").Value = dataArray(i, 2)
             outputRow = outputRow + 1
         End If
-    Next cell
-    
-    MsgBox "Filtered names for '" & category & "' are shown in column C.", vbInformation
+    Next i
+
+    If outputRow = 2 Then
+        MsgBox "No names found for '" & category & "'.", vbExclamation
+    Else
+        MsgBox "Names for '" & category & "' shown in column A.", vbInformation
+    End If
 End Sub
