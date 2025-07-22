@@ -1,4 +1,9 @@
-FX emails for CCY: USD/CAD/HUF/CZK/BGN/KZT/MXN/CHF/DKK/CLP/ZAR/NOK/SEK/RUB
+FX emails for CCY: /PLN/RSD/ZAR/RON/TRY
+
 
 External/Internal FX emails should be auto-categorized based on keywords in the email body or subject.
-If the body or subject contains any of the above currencies, the email should be routed to the A-M (GLOBAL NOSTRO) desk.
+If the body or subject contains any of the above currencies, the email should be routed to the N-Z (GLOBAL NOSTRO) desk.
+
+
+
+Body or subject contain: /PLN/RSD/ZAR/RON/TRY
