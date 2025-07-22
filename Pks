@@ -1,0 +1,4 @@
+
+FX Options emails are classified as internal or external based on specific identifiers found within the Subject, Body, To, From, or CC fields of an email.
+
+If any of these fields contain predefined keywords, phrases, or email addresses related to FX Options activity, the email should be automatically routed to the FX Options queue for further handling.
