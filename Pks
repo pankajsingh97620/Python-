@@ -1,9 +1,4 @@
-FX emails for CCY: /AUD/HKD/PHP/JPY/CNH/CNY/NZD/SGD
-
-
-
-External/Internal FX emails should be auto-categorized based on keywords in the email body or subject.
-If the body or subject contains any of the above currencies, the email should be routed to the SGFX Individual desk.
-
-
-Body or subject contain: /AUD/HKD/PHP/JPY/CNH/CNY/NZD/SGD
+We require a system to categorize emails based on priority rules. For example:
+	•	If the email body contains “USD”, it should be automatically assigned to the USD desk.
+	•	If the email body contains both “USD” and “FXD” or references an FX option, it should be automatically assigned to the FX option desk.
+Additionally, we need the ability to prioritize emails according to our specific requirements. In this case, Email 2 should be given a higher priority than Email 1.
