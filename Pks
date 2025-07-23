@@ -2,3 +2,10 @@ We require a system to categorize emails based on priority rules. For example:
 	•	If the email body contains “USD”, it should be automatically assigned to the USD desk.
 	•	If the email body contains both “USD” and “FXD” or references an FX option, it should be automatically assigned to the FX option desk.
 Additionally, we need the ability to prioritize emails according to our specific requirements. In this case, Email 2 should be given a higher priority than Email 1.
+
+
+
+If an email is tagged based on a predefined rule, and later that tag is manually removed and reassigned to a different category, the email should not revert to its original tag.
+
+Example:
+If an email was initially tagged to the USD desk and someone removes that tag and reassigns it to the GBP desk, it should remain under the GBP desk and not automatically switch back to the USD desk.
