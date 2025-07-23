@@ -1,12 +1,9 @@
-FX emails for CCY: /ILS/MUR/UGX/GHS/TND/SAR/JMD/OMR/KWD/AED/JOD/BWP/BHD/ZMW/MAD/QAR/AOA/LKR/ISK/LSL/MVR/TTD/SZL/KES/EGP
+FX emails for CCY: /AUD/HKD/PHP/JPY/CNH/CNY/NZD/SGD
 
 
 
 External/Internal FX emails should be auto-categorized based on keywords in the email body or subject.
-If the body or subject contains any of the above currencies, the email should be routed to the GROUP ACCOUNTS desk.
+If the body or subject contains any of the above currencies, the email should be routed to the SGFX Individual desk.
 
 
-
-
-   Body or subject contain: /ILS/MUR/UGX/GHS/TND/SAR/JMD/OMR/KWD/AED/JOD/BWP/BHD/ZMW/MAD/QAR/AOA/LKR/ISK/LSL/MVR/TTD/SZL/KES/EGP
-
+Body or subject contain: /AUD/HKD/PHP/JPY/CNH/CNY/NZD/SGD
