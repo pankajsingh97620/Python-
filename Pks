@@ -1,3 +1,32 @@
-As you all know, we’re soon migrating from Outlook to Salesforce, which offers a more convenient platform with enhanced features and rule capabilities. If there’s any feature you feel is currently missing in the shared mailbox and would like to have it added in Salesforce, please do highlight it.
+1.	FXMMPOST Auto-Tagging Enhancement
+	•	One of the biggest challenges in 2022 was manual mailbox tagging and clearing—time-consuming and inefficient.
+	•	I implemented an auto-tagging logic based on BOLT ownership. This ensured emails reached only relevant users.
+	•	Result: Drastic reduction in irrelevant emails and improved ROTA tagging speed and accuracy.
+	•	Outcome: Increased efficiency and higher user satisfaction through accurate and timely routing.
+	2.	Data Clean-Up & Static Update for INCL Recs
+	•	Moved internal clients to INCL recs by correcting static mapping, which was incorrectly tied to Nostro accounts.
+	•	Outcome: Reduced break counts, minimized unnecessary email loops, and improved STP (Straight Through Processing).
+	3.	BRCY Standards Update for Payment Processing
+	•	Identified issue with GBS payments failing due to missing BRCY standards.
+	•	Took initiative to raise Service Form (SF) to update BRCY for exotic currencies.
+	•	Result: Payments now clearing without failure.
+	4.	WG Mailbox Efficiency
+	•	Currently, 50% of emails are auto-closed without any manual intervention.
+	•	That’s around 4,500 emails closed monthly, freeing up valuable team time.
 
-You can reach out to me or Raghu with your suggestions.
+
+
+
+Key Achievements (Mid-Year Highlights)
+	1.	Zero Processing Errors
+	•	Maintained 100% accuracy in task execution with no operational errors reported, showcasing strong attention to detail and process control.
+	2.	No Client Escalations
+	•	Ensured smooth communication and timely delivery of work, resulting in zero escalations from clients—a direct indicator of reliability and trust.
+	3.	No People Issues Raised
+	•	Maintained a positive and professional work environment, contributing to team harmony with no HR or interpersonal issues reported.
+	4.	No Internal or External Complaints
+	•	Successfully delivered all responsibilities without any negative feedback, internally or externally—demonstrating consistency and commitment to service quality.
+	5.	Support in Technical Issues
+	•	Actively helped team members resolve various technical issues, including Outlook rules, Excel formula errors, macro fixes, and system workarounds.
+	•	This not only improved team productivity but also reduced dependencies on tech support.
+
