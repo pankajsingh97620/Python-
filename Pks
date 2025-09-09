@@ -1,0 +1,2 @@
+In Case No. 3333, when I created a child case in Salesforce and assigned it to the email address datamanagementuat, the email was successfully received in the mailbox.
+However, when I replied to the child case email from datamanagementuat, the email received at derivativeUat is being merged under the child case automatically, and there is no popup notification indicating a new email has been received for the child case.”
